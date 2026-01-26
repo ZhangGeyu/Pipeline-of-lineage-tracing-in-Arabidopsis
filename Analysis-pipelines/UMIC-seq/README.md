@@ -14,8 +14,10 @@ These barcodes are used to assign and group reads according to their originating
 Input: 
 Raw sequencing reads (FASTQ format)
 barcode.probe.fasta
+
 Output: 
 ExtractedBC.fasta
+
 Command: 
 python UMIC-seq.py UMIextract Plant1_Leaf_UMIC_seq.fq \
   --probe barcode.probe-Plant1.fasta \
@@ -31,8 +33,10 @@ Reads with different barcodes are separated and written to individual FASTA file
 Input: 
 barcodes-Plant1.fasta
 Plant1_Leaf_UMIC_ExtractedBC_10bp.fasta
+
 output: 
 A new directory containing demultiplexed FASTA files, with one FASTA file per sample barcode.
+
 Command: 
 nohup python UMIC-seq_helper.py demultiplex \
 --barcodes barcodes-Plant1.fasta \
@@ -45,8 +49,10 @@ In this step, reads are extracted from Demultiplex_BCXX.fasta and converted into
 
 Input: 
 Plant1_Leaf_UMIC_seq.fq
+
 output: 
 A new directory containing demultiplexed FASTQ files, with one FASTQ file per sample barcode.
+
 Command: 
 python UMI-seq-Step1.3.py
 See the script UMI-seq-Step1.3.py for implementation details.
@@ -57,8 +63,10 @@ UMIs are used to distinguish PCR duplicates from true biological variants in dow
 
 Input: 
 Demultiplexed FASTQ files (../BC_split_fq/BCXX.fq) generated in Step 1.3
+
 Output: 
 A new directory containing FASTA files with extracted UMIs, with one FASTA file per sample.
+
 Command:
 python UMIC-seq.py UMIextract \
   --input ../BC_split_fq/BCXX.fq \
@@ -74,9 +82,11 @@ Reads with identical or highly similar UMIs are grouped together based on the th
 
 Input:  
 Extracted UMI FASTA files (Extract_UMI/ExtractedUMIs_BCXX.fasta) generated in Step 2
+
 Output: 
 A new directory containing clustered UMIs and associated reads, organized by sample
 
+Command:
 python UMIC-seq.py clusterfull \
   --input Extract_UMI/ExtractedUMIs_BCXX.fasta \
   --reads BC_split_fq/BCXX.fq \
@@ -84,3 +94,4 @@ python UMIC-seq.py clusterfull \
   --size_thresh 10 \
   --output ../UMIclusterfull/ \
   --stop_thresh 0
+
