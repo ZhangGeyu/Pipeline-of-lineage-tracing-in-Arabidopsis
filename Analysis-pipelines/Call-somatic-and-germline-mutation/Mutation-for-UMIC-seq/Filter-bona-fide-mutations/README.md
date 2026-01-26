@@ -1,8 +1,10 @@
 # UMIC-seq Mutation Calling Pipeline
 This directory contains the mutation calling pipeline for UMIC-seq experiments.
+
 The pipeline extracts mutations from each read and identifies bona fide somatic mutations for each readout (UMI).
 
 The workflow below uses the Plant1 Leaf UMIC-seq library as an example.
+
 The corresponding input files can be found in: Pipeline-of-lineage-tracing-in-Arabidopsis/Data/UMIC-seq
 
 ## Step 1. Merge cluster_XX.fasta Files Produced by Clusterfull
@@ -13,6 +15,7 @@ File path of the Clusterfull results (../UMIclusterfull/)
 BC_UMI_merge.fasta
 #### Command
 python UMIC-seq-CallMut-Step1.py
+
 See the script UMIC-seq-CallMut-Step1.py for implementation details.
 
 ## Step 2. Map Reads to Reference and Sort BAM
@@ -37,6 +40,7 @@ BC_UMI_merge.fasta.sorted.bam
 A new directory containing BAM files, one BAM per readout
 #### Command:
 python UMIC-seq-CallMut-Step3.py
+
 See the script UMIC-seq-CallMut-Step3.py for implementation details.
 
 ## Step 4. Call Mutations Using samtools mpileup
@@ -59,6 +63,7 @@ SampleBC_SampleName-Plant1.txt
 ConsensusSequence_CallSNP_Raw.txt (all mutations from all samples)
 #### Command:
 python UMIC-seq-CallMut-Step5.py
+
 See the script UMIC-seq-CallMut-Step5.py for implementation details.
 
 ## Step 6. Filter Bona Fide Mutations
