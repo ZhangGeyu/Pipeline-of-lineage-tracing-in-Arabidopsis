@@ -80,10 +80,10 @@ python UMIC-seq.py UMIextract \
 In this step, full UMI clustering is performed.
 Reads with identical or highly similar UMIs are grouped together based on the thresholds defined.
 
-Input:  
+Input:
 Extracted UMI FASTA files (Extract_UMI/ExtractedUMIs_BCXX.fasta) generated in Step 2
 
-Output: 
+Output:
 A new directory containing clustered UMIs and associated reads, organized by sample
 
 Command:
@@ -94,4 +94,5 @@ python UMIC-seq.py clusterfull \
   --size_thresh 10 \
   --output ../UMIclusterfull/ \
   --stop_thresh 0
+
 
