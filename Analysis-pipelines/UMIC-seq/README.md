@@ -4,6 +4,8 @@ The pipeline is designed to identify bona fide somatic mutations by tracking UMI
 The workflow below uses the Plant1 Leaf UMIC-seq library as an example.
 The corresponding input files can be found in: Pipeline-of-lineage-tracing-in-Arabidopsis/Data/UMIC-seq
 
+The following described pipelines can be applied to all UMIC-seq libraries used in this study.
+
 # Pipeline Steps
 ## 1. Extraction of Sample Barcodes (Sample_BC)
 
@@ -11,17 +13,12 @@ In this step, sample barcodes are extracted from raw sequencing reads.
 These barcodes are used to assign and group reads according to their originating samples.
 
 ### Step1.1: Extract reads containing sample barcodes using a barcode probe
-Input: 
-
+#### Input: 
 Raw sequencing reads (FASTQ format)
 barcode.probe.fasta
-
-Output: 
-
+#### Output: 
 ExtractedBC.fasta
-
-Command: 
-
+#### Command: 
 python UMIC-seq.py UMIextract Plant1_Leaf_UMIC_seq.fq \
   --probe barcode.probe-Plant1.fasta \
   --umi_loc up \
@@ -109,6 +106,7 @@ python UMIC-seq.py clusterfull \
   --size_thresh 10 \
   --output ../UMIclusterfull/ \
   --stop_thresh 0
+
 
 
 
