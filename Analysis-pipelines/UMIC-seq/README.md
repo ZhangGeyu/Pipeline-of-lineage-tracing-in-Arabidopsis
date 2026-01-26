@@ -30,17 +30,12 @@ python UMIC-seq.py UMIextract Plant1_Leaf_UMIC_seq.fq \
 In this step, reads in Plant1_Leaf_UMIC_ExtractedBC_10bp.fasta are split according to sample barcodes.
 Reads with different barcodes are separated and written to individual FASTA files.
 
-Input: 
-
+#### Input: 
 barcodes-Plant1.fasta
 Plant1_Leaf_UMIC_ExtractedBC_10bp.fasta
-
-output: 
-
+#### output: 
 A new directory containing demultiplexed FASTA files, with one FASTA file per sample barcode.
-
-Command: 
-
+#### Command: 
 nohup python UMIC-seq_helper.py demultiplex \
 --barcodes barcodes-Plant1.fasta \
 --input Plant1_Leaf_UMIC_ExtractedBC_10bp.fasta \
@@ -50,16 +45,11 @@ nohup python UMIC-seq_helper.py demultiplex \
 
 In this step, reads are extracted from Demultiplex_BCXX.fasta and converted into sample-specific FASTQ files based on sample barcodes.
 
-Input: 
-
+#### Input: 
 Plant1_Leaf_UMIC_seq.fq
-
-output: 
-
+#### output: 
 A new directory containing demultiplexed FASTQ files, with one FASTQ file per sample barcode.
-
-Command: 
-
+#### Command: 
 python UMI-seq-Step1.3.py
 See the script UMI-seq-Step1.3.py for implementation details.
 
@@ -67,16 +57,11 @@ See the script UMI-seq-Step1.3.py for implementation details.
 In this step, Unique Molecular Identifiers (UMIs) are extracted from the sequencing data of each sample.
 UMIs are used to distinguish PCR duplicates from true biological variants in downstream analyses.
 
-Input: 
-
+#### Input: 
 Demultiplexed FASTQ files (../BC_split_fq/BCXX.fq) generated in Step 1.3
-
-Output: 
-
+#### Output: 
 A new directory containing FASTA files with extracted UMIs, with one FASTA file per sample.
-
-Command:
-
+#### Command:
 python UMIC-seq.py UMIextract \
   --input ../BC_split_fq/BCXX.fq \
   --probe UMI_probe-Plant1.fasta \
@@ -89,16 +74,11 @@ python UMIC-seq.py UMIextract \
 In this step, full UMI clustering is performed.
 Reads with identical or highly similar UMIs are grouped together based on the thresholds defined.
 
-Input:
-
+#### Input:
 Extracted UMI FASTA files (Extract_UMI/ExtractedUMIs_BCXX.fasta) generated in Step 2
-
-Output:
-
+#### Output:
 A new directory containing clustered UMIs and associated reads, organized by sample
-
-Command:
-
+#### Command:
 python UMIC-seq.py clusterfull \
   --input Extract_UMI/ExtractedUMIs_BCXX.fasta \
   --reads BC_split_fq/BCXX.fq \
@@ -106,7 +86,3 @@ python UMIC-seq.py clusterfull \
   --size_thresh 10 \
   --output ../UMIclusterfull/ \
   --stop_thresh 0
-
-
-
-
