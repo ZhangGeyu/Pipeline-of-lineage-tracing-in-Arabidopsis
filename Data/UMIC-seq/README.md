@@ -1,6 +1,6 @@
 Files in this directory are source files required to run the UMIC-seq analysis pipeline and to call mutations from readouts.
 
-The corresponding analysis code can be found in: Pipeline-of-lineage-tracing-in-Arabidopsis/Analysis-pipelines/
+The corresponding analysis code can be found in: Pipeline-of-lineage-tracing-in-Arabidopsis/Analysis-pipelines/UMIC-seq/
 
 The files are described below, using Plant 2 as an example:
 #### barcode.probe-Plant2.fasta: 
