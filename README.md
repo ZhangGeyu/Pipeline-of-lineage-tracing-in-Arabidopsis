@@ -7,9 +7,13 @@ This version (Analysis-Pipeline-v2.0) includes updated workflows, environment de
 ## Repository Structure
 
 ├── Analysis-pipelines/           # All analysis scripts and workflows
+
 ├── Data/                         # Raw and intermediate data used by the pipeline
+
 ├── Envs/                         # Conda environment .yml files
+
 ├── Figures-and-related-code/     # Scripts and files needed to generate figures
+
 └── README.md                     # This file
 
 ### Computational Environments
