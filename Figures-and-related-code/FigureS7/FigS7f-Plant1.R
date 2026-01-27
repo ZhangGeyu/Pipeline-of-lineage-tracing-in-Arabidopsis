@@ -16,7 +16,11 @@ Figure_Theme <- theme_bw()+
 
 # Plant1
 
+Hotspot_Plant1 <- c("1092_T_-1C","1114_A_G","1226_C_T","1335_C_T","445_C_T","513_C_G","53_C_-2GA","77_G_A","795_G_T","965_G_A")
+
+# Raw file
 Parental_SNP <- read.table('Parental_CallSNP_Plant1.txt', header = T)
+Parental_SNP <- Parental_SNP[!Parental_SNP$mut_info %in% Hotspot_Plant1,]   # Remove hotspot mutations
 head(Parental_SNP)
 
 UMI_mut_counts <- table(Parental_SNP$SampleName_UMI)
