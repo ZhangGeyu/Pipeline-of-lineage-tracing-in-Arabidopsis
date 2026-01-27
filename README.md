@@ -88,9 +88,4 @@ All scripts and auxiliary files used to generate figures in the associated manus
 If you use this pipeline in your research, please cite the corresponding manuscript and include the version tag (e.g., v2.0) from this repository.
 
 ## License
-
-
-
-
-
-
+This project is licensed under the MIT License.
