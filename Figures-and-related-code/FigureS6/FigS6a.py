@@ -64,7 +64,7 @@ def parse_vcf_file(input_file, output_file):
                     continue
 def main():
     input_file = "UMIC_1.g.vcf"
-    output_file = "UMIC_vcf_test_plant1.txt"
+    output_file = "UMIC_vcf_plant1.txt"
 
     parse_vcf_file(input_file, output_file)
 
