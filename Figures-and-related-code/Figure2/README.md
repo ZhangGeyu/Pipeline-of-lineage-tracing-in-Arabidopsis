@@ -16,3 +16,5 @@ The next step is to perform multiple sequence alignment and cell lineage tree co
 mafft --thread 50 ConsensusSeq_Plant1.fasta > ConsensusSeq_Multiple_Alignment_Plant1.fasta &
 
 FastTree -nt ConsensusSeq_Multiple_Alignment_Plant1.fasta > ConsensusSeq_Tree_Plant1.nwk &
+
+The resulting Newick tree file (.nwk) can be visualized using iTOL (Interactive Tree Of Life): https://itol.embl.de/
