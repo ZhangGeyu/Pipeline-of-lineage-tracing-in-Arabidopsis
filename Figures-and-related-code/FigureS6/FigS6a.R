@@ -41,10 +41,10 @@ read_and_process_data <- function(file_path, sample_name) {
 }
 
 file_paths <- c(
-  WT = '/../UMIC_vcf_test_WT.txt',    
-  plant1 = '/../UMIC_vcf_test_plant1.txt',            
-  plant2 = '/../UMIC_vcf_test_plant2.txt',   
-  plant3 = '/../UMIC_vcf_test_plant3.txt'  
+  WT = '/../UMIC_vcf_WT.txt',    
+  plant1 = '/../UMIC_vcf_plant1.txt',            
+  plant2 = '/../UMIC_vcf_plant2.txt',   
+  plant3 = '/../UMIC_vcf_plant3.txt'  
 )
 
 all_data <- map2_dfr(file_paths, names(file_paths), read_and_process_data)
