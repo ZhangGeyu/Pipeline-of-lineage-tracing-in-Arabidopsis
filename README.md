@@ -18,11 +18,11 @@ This version (Analysis-Pipeline-v2.0) includes updated workflows, environment de
 
 ## Computational Environments
 Conda environment files required to run the analysis are provided in the Envs/ folder. Use these to reproduce the software environment used in this study.
-#### UMIC-seq.yml
+#### 1. UMIC-seq.yml
 Environment for UMIC-seq preprocessing, UMI extraction, and clustering.
-#### GATK.yml
+#### 2. GATK.yml
 Environment for whole-genome sequencing mutation calling.
-#### Analysis-Pipeline.yml
+#### 3. Analysis-Pipeline.yml
 Environment for downstream scripts including mutation filtering, frequency calculation, and lineage analyses.
 
 #### To create and activate an environment:
@@ -31,6 +31,7 @@ conda env create -f Envs/UMIC-seq.yml
 conda activate UMIC-seq
 
 ## Overview of Pipeline Steps
+Codes required to run the analysis are provided in the Analysis-pipelines/ folder.
 #### 1. UMIC-seq Preprocessing & Clustering
 Extract sample barcodes and UMIs.
 
@@ -68,6 +69,25 @@ Extract readouts for selected copies.
 Compute mutation frequencies in parental and progeny samples.
 
 Generate lineage trees and statistical analysis.
+
+## Raw and intermediate data
+
+Raw and intermediate data files are provided in the Data/ folder
+
+This includes:
+
+#### Barcodes and probe sequences used for UMIC-seq preprocessing.
+#### Reference sequences for each plant.
+#### Sample metadata files linking barcodes to sample IDs.
+#### Mutation information tables for parental and progeny analyses.
+
+## Figures and Visualization
+All scripts and auxiliary files used to generate figures in the associated manuscript are in Figures-and-related-code/
+
+## Citation
+If you use this pipeline in your research, please cite the corresponding manuscript and include the version tag (e.g., v2.0) from this repository.
+
+## License
 
 
 
