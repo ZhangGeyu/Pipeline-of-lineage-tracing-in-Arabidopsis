@@ -1,0 +1,66 @@
+Figure_Theme <- theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank())+
+  theme(plot.title=element_text(size=8))+
+  theme(axis.text.x = element_text(angle=0, hjust=0.5))+
+  theme(axis.text.x = element_text(colour="black", size=8))+
+  theme(axis.text.y = element_text(colour="black", size=8))+
+  theme(axis.title=element_text(size=8))+
+  theme(axis.ticks=element_line(colour="black",size=0.5))+
+  theme(axis.line=element_line(colour="black")) + 
+  theme(legend.title=element_text(size=8))+
+  theme(legend.text=element_text(size=8))+
+  theme(axis.line=element_blank()) + 
+  theme(panel.border = element_rect(fill=NA, size=1))
+
+## S-M test for Clustered Progeny
+
+library(phangorn)
+
+tree <- read.tree(paste0(path,'ConsensusSeq_Tree_Plant1.nwk'))  # Read tree file in Newick format
+traits <- data.frame(species = tree$tip.label)
+
+tree <- makeNodeLabel(tree, method = "number", prefix = "N")  
+tree <- root(tree, outgroup = "reference", resolve.root = TRUE)   # Root the tree using "reference" as outgroup
+tree$edge.length[tree$edge.length == 0] <- 5e-10                  # Set zero-length branches to tiny positive values
+
+Offspring_1 <- c('B1_1_P9_2_progeny','B2_2_P3_1_progeny','B2_P2_1_progeny','B1_2_P8_4_progeny',
+                 'B3_P3_3_progeny','B3_P3_2_progeny','B3_P3_4_progeny','B1_2_P6_1_progeny')
+traits$trait_value <- ifelse(traits$species %in% Offspring_1, 1, 0)   # Assign binary trait values: 1 for cluster members, 0 otherwise
+
+rownames(traits) <- traits$species
+traits$species <- NULL
+
+trait_mat <- as.matrix(traits)
+rownames(trait_mat) <- rownames(traits)
+head(trait_mat)
+
+trait_phyDat <- phyDat(trait_mat, type = "USER", levels = c("0","1"))  # Convert trait matrix to phyDat object for phylogenetic analysis
+obs_score <- parsimony(tree, trait_phyDat)                             # Calculate observed parsimony score (minimum evolutionary steps) for traits on tree
+
+# Perform permutation test 
+set.seed(123)   
+n_permute <- 1000
+null_scores <- numeric(n_permute)
+
+for (i in 1:n_permute) {
+  permuted_states <- sample(trait_mat) 
+  names(permuted_states) <- rownames(trait_mat)
+  perm_phyDat <- phyDat(permuted_states, type = "USER", levels = c("0","1")) # Convert permuted data to phyDat object
+  null_scores[i] <- parsimony(tree, perm_phyDat)                     # Calculate parsimony score for permuted data
+}
+
+p_value <- mean(null_scores <= obs_score)
+df_score <- data.frame(score = null_scores)
+
+S_M_test <- ggplot(df_score, aes(x = score)) +
+  geom_histogram(bins = 7, fill = "grey", color = "black") +
+  geom_vline(xintercept = obs_score, color = "red", linetype = "dashed", size = 0.5) +
+  labs(title = "Plant1 Cluster Progeny",x = "Parsimony Score",y = "Count") +
+  scale_x_continuous(breaks = seq(0, 1000, by = 1)) + 
+  scale_y_continuous(breaks = seq(0, 1000, by = 200)) + 
+  annotate("text", x = obs_score + 0.5, y = max(table(null_scores)) - 100,
+           label = paste0("Observed = ", obs_score,'\n','P value = ',p_value),
+           color = "red", hjust = 0, size = 3) + 
+  Figure_Theme
