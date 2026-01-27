@@ -8,7 +8,7 @@ Additional required files are provided within this folder.
 
 ### Extra notes
 
-#### Fig4a:
+#### Fig4a: Files for tree construction (process and results) are included in this folder.
 After running the Fig4a.py, a FASTA file containing the selected somatic and progeny readouts will be generated.
 
 The next step is to perform multiple sequence alignment and cell lineage tree construction using the following commands:
@@ -19,7 +19,7 @@ FastTree -nt ConsensusSeq_Multiple_Alignment_Plant2.fasta > ConsensusSeq_Tree_Pl
 
 The resulting Newick tree file (.nwk) can be visualized using iTOL (Interactive Tree Of Life): https://itol.embl.de/
 
-#### Fig4d:
+#### Fig4d: Files for tree construction (process and results) are included in this folder.
 After running the Fig4d.py, a FASTA file containing the selected somatic and progeny readouts will be generated.
 
 The next step is to perform multiple sequence alignment and cell lineage tree construction using the following commands:
