@@ -16,7 +16,7 @@ This version (Analysis-Pipeline-v2.0) includes updated workflows, environment de
 
 └── README.md                     # This file
 
-### Computational Environments
+## Computational Environments
 Conda environment files required to run the analysis are provided in the Envs/ folder. Use these to reproduce the software environment used in this study.
 #### UMIC-seq.yml
 Environment for UMIC-seq preprocessing, UMI extraction, and clustering.
@@ -30,7 +30,7 @@ conda env create -f Envs/UMIC-seq.yml
 
 conda activate UMIC-seq
 
-### Overview of Pipeline Steps
+## Overview of Pipeline Steps
 #### 1. UMIC-seq Preprocessing & Clustering
 Extract sample barcodes and UMIs.
 
