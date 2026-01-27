@@ -1,0 +1,17 @@
+TargetSite	position	direction
+TargetSite_1	330	<=
+TargetSite_2	369	=>
+TargetSite_3	450	<=
+TargetSite_4	489	=>
+TargetSite_5	570	<=
+TargetSite_6	609	=>
+TargetSite_7	690	<=
+TargetSite_8	729	=>
+TargetSite_9	810	<=
+TargetSite_10	849	=>
+TargetSite_11	930	<=
+TargetSite_12	969	=>
+TargetSite_13	1050	<=
+TargetSite_14	1089	=>
+TargetSite_15	1170	<=
+TargetSite_16	1209	=>
