@@ -1,6 +1,6 @@
-Codes in the directories under this section are used to filter bona fide mutations and to extract readouts from the selected copy.
+### Codes in the directories under this section are used to filter bona fide mutations and to extract readouts from the selected copy.
 
-The analysis is performed in the following order:
+#### The analysis is performed in the following order:
 
 First, bona fide mutations are filtered; 
 
