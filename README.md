@@ -31,3 +31,46 @@ conda env create -f Envs/UMIC-seq.yml
 conda activate UMIC-seq
 
 ### Overview of Pipeline Steps
+#### 1. UMIC-seq Preprocessing & Clustering
+Extract sample barcodes and UMIs.
+
+Demultiplex reads by sample.
+
+Perform UMI clustering to group reads with identical or similar UMIs.
+
+Output clustered FASTA for downstream analysis.
+
+#### 2. UMIC-seq Mutation Calling
+
+Merge clustered reads from all samples.
+
+Align merged reads to the reference genome.
+
+Split alignments by readout.
+
+Call mutations using mpileup files.
+
+Filter bona fide mutations.
+
+#### 3. Progeny TA-clone Analysis
+
+Combine forward and reverse Sanger sequencing into consensus sequences.
+
+Map progeny consensus sequences to reference.
+
+Extract progeny mutations.
+
+
+#### 4. Frequency Analysis & Lineage Inference
+
+Extract readouts for selected copies.
+
+Compute mutation frequencies in parental and progeny samples.
+
+Generate lineage trees and statistical analysis.
+
+
+
+
+
+
