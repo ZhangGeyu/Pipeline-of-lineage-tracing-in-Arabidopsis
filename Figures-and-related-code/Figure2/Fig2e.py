@@ -6,7 +6,7 @@ import os
 Hotspot_Plant1 = ["1092_T_-1C","1114_A_G","1226_C_T","1335_C_T","445_C_T","513_C_G","53_C_-2GA","77_G_A","795_G_T","965_G_A"]
 
 mutation_file = os.path.join('MutFreq_In_ParentalSample_Plant1.txt')
-distance_file = os.path.join('sample_distance_renamed.txt')
+distance_file = os.path.join('sample_distance.txt')
 output_file = os.path.join('different_mutation_between_sample_final.txt')
 
 df = pd.read_csv(mutation_file, sep='\t')
