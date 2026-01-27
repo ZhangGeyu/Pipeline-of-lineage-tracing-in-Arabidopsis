@@ -8,7 +8,7 @@ Additional required files are provided within this folder.
 
 ### Extra notes
 
-#### Fig2a:
+#### Fig2a: Files for tree construction (process and results) are included in this folder.
 After running the Fig2a.py, a FASTA file containing the selected somatic and progeny readouts will be generated.
 
 The next step is to perform multiple sequence alignment and cell lineage tree construction using the following commands:
