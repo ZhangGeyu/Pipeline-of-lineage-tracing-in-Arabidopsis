@@ -14,11 +14,13 @@ Figure_Theme <- theme_bw()+
   theme(axis.line=element_blank()) + 
   theme(panel.border = element_rect(fill=NA, size=1))
 
-# Plant3
+# plant3
+
 HighFreqMut_list_181copy <- c('1213_C_+5GTGCT','181_G_A','182_G_A','183_G_A','184_G_A','736_G_A','601_G_A','657_G_A','719_C_T','238_G_A','658_G_A','663_C_T')
+Hotspot_181copy <- c("1007_C_T","1013_C_T","1100_G_A","1186_A_G","1242_G_A","306_T_C","77_C_T","850_C_T","941_C_T")
 
 Parental_SNP <- read.table('Parental_CallSNP_Plant3_181copy.txt', header = T)
-Parental_SNP <- Parental_SNP[!Parental_SNP$mut_info %in% HighFreqMut_list_181copy,]  # remove copy mutations
+Parental_SNP <- Parental_SNP[(!Parental_SNP$mut_info %in% HighFreqMut_list_181copy)&(!MutFreq_In_ProgenySample$mut_info %in% Hotspot_181copy),]        # Remove copy mutations and hotspots
 head(Parental_SNP)
 
 UMI_mut_counts <- table(Parental_SNP$SampleName_UMI)
