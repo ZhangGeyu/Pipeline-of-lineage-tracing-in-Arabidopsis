@@ -8,30 +8,17 @@ This version (Analysis-Pipeline-v2.0) includes updated workflows, environment de
 
 Pipeline-of-lineage-tracing-in-Arabidopsis/
 
-│
-
 ├── Analysis-pipelines/           # Analysis scripts and workflows for lineage tracing
-
-│
 
 ├── Data/                         # Raw and intermediate data used in the analyses
 
-│
-
 ├── Envs/                         # Conda environment files for reproducible computation
-
-│
 
 ├── Figures-and-related-code/     # Scripts and auxiliary files for figure generation
 
-│
-
 ├── LICENSE                       # MIT License for this repository
 
-│
-
 └── README.md                     # Project overview and usage instructions
-
 
 ## Computational Environments
 Conda environment files required to run the analysis are provided in the Envs/ folder. Use these to reproduce the software environment used in this study.
