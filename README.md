@@ -34,7 +34,7 @@ conda env create -f Envs/UMIC-seq.yml
 
 conda activate UMIC-seq
 
-## Overview of Pipeline Steps
+## Overview of analysis-pipelines
 Codes required to run the analysis are provided in the Analysis-pipelines/ folder.
 #### 1. UMIC-seq Preprocessing & Clustering
 Extract sample barcodes and UMIs.
