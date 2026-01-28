@@ -50,7 +50,7 @@ clean_fq = clean_fq.drop_duplicates('read_id_split').reset_index(drop = True)
 
 print('Finish: fastq to dataframe')
 
-# split the clean.fq by sample BC
+# split the clean.fq by sample barcode
 
 for BC_ID, group in BC_reads_df.groupby("BC_ID"):
     Reads_ID_list = group["Reads_ID"].tolist()
