@@ -6,3 +6,20 @@ Some of the required raw data files are provided in: Pipeline-of-lineage-tracing
 
 Additional required files are provided within this folder.
 
+### Extra notes
+
+#### FigS5a, FigS5c, and FigS5e:
+After running FigS5a.py, FigS5c.py, and FigS5e.py, a file named "character_matrix.csv" will be generated, containing the mutation information of both somatic and progeny readouts. 
+
+In addition, "mutation_prior.csv" will be generated, which shows the rate of each mutation type at different positions.
+
+#### FigS5a S5c and S5e: 
+After running the FigS5a.py, FigS5c.py and FigS5e.py, character_matrix.csv containing the mutation of somatic and progeny readouts will be generated. and a mutation_prior.csv show the frequency of each type of mutation in different position will be generated.
+
+The next step is to perform cell lineage tree construction using the following commands:
+
+python ../startle/scripts/nj.py character_matrix.csv --output tree.newick &
+
+startle large character_matrix.csv mutation_prior.csv tree.newick --output startle &
+
+The resulting Newick tree file (.nwk) can be visualized using iTOL (Interactive Tree Of Life): https://itol.embl.de/
