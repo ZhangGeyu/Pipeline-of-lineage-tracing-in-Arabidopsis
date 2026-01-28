@@ -634,4 +634,3 @@ dependencies:
       - vbz-h5py-plugin==1.0.1
       - xopen==1.5.0
       - yarl==1.8.2
-prefix: /Dell/Dell15/zhanggy/bin/anaconda3
