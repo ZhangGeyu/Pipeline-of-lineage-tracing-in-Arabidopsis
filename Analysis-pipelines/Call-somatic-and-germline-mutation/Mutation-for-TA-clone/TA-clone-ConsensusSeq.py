@@ -1,11 +1,13 @@
 from Bio import SeqIO
 import pandas as pd
 
+# Convert reverse Sanger sequencing reads to reverse-complement sequences
 def reverse_complement(sequence):
     complement_dict = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
     reverse_complement_seq = ''.join(complement_dict[base] for base in reversed(sequence))
     return reverse_complement_seq
 
+# Identify the overlapping region between the forward and reverse sequences
 def find_common_sequence(seq1, seq2, min_length=50):
     common_sequences = []
     for i in range(len(seq1) - min_length + 1):
