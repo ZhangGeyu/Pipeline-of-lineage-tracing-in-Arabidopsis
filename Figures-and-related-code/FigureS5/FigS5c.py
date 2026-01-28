@@ -60,7 +60,7 @@ for pos in Merge_mut_df['pos'].unique():
 
 ## using the tree constructed by FastTree
 from skbio import TreeNode
-tree = TreeNode.read(path + "Germline/Consensus_seq/Tree/ConsensusSeq_Tree_Plant2.nwk")
+tree = TreeNode.read("ConsensusSeq_Tree_Plant2.nwk")
 Parental_UMI_list = [n.name.rsplit(' ', 1)[0].replace(' ', '-') + '_' + n.name.rsplit(' ', 1)[1] if ' ' in n.name else n.name for n in tree.tips()]
 Parental_UMI_list = [s for s in Parental_UMI_list if 'P' not in s]
 
