@@ -147,4 +147,3 @@ dependencies:
   - zipp=0.6.0=py_0
   - zlib=1.2.11=h7b6447c_3
   - zstd=1.4.0=h3b9ef0a_0
-prefix: /Dell/Dell15/zhanggy/miniconda3/envs/UMIC-seq
