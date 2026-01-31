@@ -1,6 +1,6 @@
 # Pipeline-of-lineage-tracing-in-Arabidopsis
 
-This repository contains the analysis pipeline for lineage tracing in Arabidopsis, integrating UMIC-seq and TA-clone sequencing data to identify bona fide mutations, reconstruct cell lineage tree, and analyze mutation frequencies across samples.
+This repository contains the analysis pipeline for lineage tracing in Arabidopsis, integrating UMIC-seq and TA-clone sequencing data to identify bona fide mutations, reconstruct cell lineage tree, and analyze mutation frequencies across samples, and perform statistical analyses.
 
 This version (Analysis-Pipeline-v2.0) includes updated workflows, environment definitions, and documentation for reproducible analysis.
 
